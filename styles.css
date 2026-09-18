@@ -1,0 +1,967 @@
+/* SNACKS POINT — DISEÑO
+   Edita este archivo, guarda y actualiza index.html en el navegador.
+   Consulta LEEME.md para ejemplos de colores, tamaños y vista móvil.
+   Los colores específicos de la pantalla se encuentran en .screen.
+*/
+
+/* 01. COLORES Y VARIABLES: empieza aquí para personalizar la marca. */
+:root {
+  --bg: #080808;
+  --panel: #111111;
+  --panel2: #171717;
+  --text: #f7f7f4;
+  --muted: #b7b7b0;
+  --orange: #ff7a00;
+  --orange2: #ff9d22;
+  --line: #2c2c2c;
+  --green: #27c46b;
+  --blue: #55a4ff;
+  --shadow: 0 24px 70px rgba(0,0,0,.42)
+}
+
+/* 02. ESTILOS GENERALES */
+* {
+  box-sizing: border-box
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg)
+}
+
+body {
+  margin: 0;
+  font-family: Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden
+}
+
+a {
+  color: inherit
+}
+
+button,input {
+  font: inherit
+}
+
+/* 03. BARRA SUPERIOR Y LOGOTIPO */
+.topbar {
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg,rgba(8,8,8,.94),rgba(8,8,8,.58),transparent);
+  padding: 0 max(22px,calc((100vw - 1220px)/2));
+  pointer-events: none
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  pointer-events: auto
+}
+
+.brand img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 10px
+}
+
+.brandtext b {
+  display: block;
+  font-size: 14px;
+  letter-spacing: .14em
+}
+
+.brandtext span {
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: .12em;
+  text-transform: uppercase
+}
+
+.topcta {
+  margin-left: auto;
+  pointer-events: auto;
+  text-decoration: none;
+  background: var(--orange);
+  color: #111;
+  font-weight: 900;
+  border-radius: 999px;
+  padding: 11px 16px;
+  font-size: 13px
+}
+
+/* 04. EXPERIENCIA DE INICIO: 420vh determina el recorrido del scroll. */
+.scroll-story {
+  height: 420vh;
+  position: relative;
+  background: radial-gradient(circle at 70% 24%,#3a2108 0,#13100b 25%,#080808 60%)
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden
+}
+
+.story-copy {
+  position: absolute;
+  z-index: 10;
+  left: max(5vw,calc((100vw - 1220px)/2));
+  top: 19vh;
+  width: min(520px,42vw);
+  transition: opacity .25s,transform .25s
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--orange2)
+}
+
+.story-copy h1 {
+  font-size: clamp(46px,6.2vw,88px);
+  line-height: .9;
+  letter-spacing: -.055em;
+  margin: 14px 0 20px
+}
+
+.story-copy h1 em {
+  font-style: normal;
+  color: var(--orange)
+}
+
+.story-copy p {
+  max-width: 510px;
+  color: #d0d0ca;
+  line-height: 1.7;
+  font-size: 17px
+}
+
+.scroll-hint {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  margin-top: 18px;
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase
+}
+
+.scroll-hint i {
+  width: 17px;
+  height: 28px;
+  border: 1px solid #777;
+  border-radius: 999px;
+  position: relative
+}
+
+.scroll-hint i:after {
+  content: "";
+  width: 3px;
+  height: 5px;
+  border-radius: 99px;
+  background: var(--orange);
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  animation: wheel 1.5s infinite
+}
+
+@keyframes wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 0
+  }
+  30% {
+    opacity: 1
+  }
+  100% {
+    transform: translateY(9px);
+    opacity: 0
+  }
+}
+
+/* 05. IMÁGENES DE LA MÁQUINA Y PUNTO DE ORIGEN DEL ZOOM */
+.machine-stage {
+  position: absolute;
+  inset: 0;
+  perspective: 1500px
+}
+
+.machine-img {
+  position: absolute;
+  left: 63%;
+  top: 53%;
+  width: min(38vw,520px);
+  max-height: 82vh;
+  object-fit: contain;
+  transform: translate(-50%,-50%);
+  filter: drop-shadow(0 35px 55px rgba(0,0,0,.7));
+  will-change: transform,opacity;
+  transition: filter .15s
+}
+
+.machine-iso {
+  opacity: 1
+}
+
+.machine-front {
+  opacity: 0;
+  transform-origin: 82% 20%
+}
+
+.halo {
+  position: absolute;
+  left: 63%;
+  top: 53%;
+  width: 42vw;
+  height: 42vw;
+  max-width: 650px;
+  max-height: 650px;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(255,122,0,.21),rgba(255,122,0,.03) 47%,transparent 69%);
+  filter: blur(12px)
+}
+
+/* 06. PANEL INTERACTIVO, PANTALLA Y BOTONES */
+.console-wrap {
+  position: absolute;
+  z-index: 25;
+  left: 50%;
+  top: 51%;
+  transform: translate(-50%,-50%) scale(.88);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s,transform .18s;
+  width: min(840px,90vw)
+}
+
+.console {
+  background: linear-gradient(145deg,#191919,#0b0b0b 68%);
+  border: 1px solid #3a3a3a;
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 30px 90px rgba(0,0,0,.72),inset 0 1px 0 rgba(255,255,255,.06);
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 18px
+}
+
+.screen {
+  min-height: 390px;
+  border-radius: 20px;
+  background: radial-gradient(circle at 50% 20%,#1d4d66,#06111a 58%,#020507);
+  border: 3px solid #252525;
+  box-shadow: inset 0 0 50px rgba(60,177,255,.15),0 0 26px rgba(48,150,255,.08);
+  padding: 26px;
+  display: flex;
+  flex-direction: column
+}
+
+.screen-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #78d8ff;
+  font-family: ui-monospace,Consolas,monospace;
+  font-size: 12px;
+  letter-spacing: .12em
+}
+
+.screen h2 {
+  font-family: ui-monospace,Consolas,monospace;
+  font-size: clamp(28px,4vw,48px);
+  line-height: 1.05;
+  margin: 58px 0 12px;
+  text-transform: uppercase;
+  letter-spacing: -.04em;
+  text-shadow: 0 0 18px rgba(90,200,255,.32)
+}
+
+.screen p {
+  color: #9bc0d1;
+  line-height: 1.6;
+  max-width: 470px
+}
+
+.screen-footer {
+  margin-top: auto;
+  color: #4e849d;
+  font-family: ui-monospace,Consolas,monospace;
+  font-size: 11px
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-content: start
+}
+
+.key {
+  min-height: 78px;
+  border: 1px solid #3b3b3b;
+  background: linear-gradient(#1e1e1e,#101010);
+  color: #f2f2ef;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: .18s;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+  pointer-events: auto
+}
+
+.key:hover,.key:focus {
+  border-color: var(--orange);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255,122,0,.12)
+}
+
+.key b {
+  display: block;
+  color: var(--orange2);
+  font-family: ui-monospace,Consolas,monospace;
+  font-size: 16px;
+  margin-bottom: 5px
+}
+
+.key span {
+  font-size: 12px;
+  color: #c0c0bb;
+  line-height: 1.35
+}
+
+.key.contact-key {
+  grid-column: 1/-1;
+  background: linear-gradient(135deg,#ff7a00,#ff9e22);
+  color: #111;
+  border-color: transparent
+}
+
+.key.contact-key b,.key.contact-key span {
+  color: #111
+}
+
+/* 07. ACCESOS RÁPIDOS */
+.quick-strip {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: .2s;
+  pointer-events: none
+}
+
+.quick-strip a {
+  pointer-events: auto;
+  text-decoration: none;
+  border: 1px solid #343434;
+  background: #111d;
+  padding: 9px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  color: #ddd;
+  backdrop-filter: blur(8px)
+}
+
+/* 08. SECCIONES DE INFORMACIÓN */
+.section {
+  padding: 100px 0;
+  background: #0c0c0c;
+  border-top: 1px solid #171717
+}
+
+.section.alt {
+  background: #111
+}
+
+.container {
+  width: min(1180px,90vw);
+  margin: auto
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 46px;
+  align-items: end;
+  margin-bottom: 42px
+}
+
+.section-head h2 {
+  font-size: clamp(36px,5vw,66px);
+  line-height: .95;
+  letter-spacing: -.045em;
+  margin: 8px 0
+}
+
+.section-head p {
+  color: #b8b8b2;
+  line-height: 1.75;
+  margin: 0;
+  font-size: 16px
+}
+
+.kicker {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .19em;
+  text-transform: uppercase
+}
+
+/* 09. CAPACIDAD E INDICADORES */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 12px
+}
+
+.metric {
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg,#151515,#0d0d0d);
+  border-radius: 20px;
+  padding: 22px
+}
+
+.metric strong {
+  display: block;
+  font-size: 40px;
+  letter-spacing: -.05em;
+  color: var(--orange2)
+}
+
+.metric span {
+  font-size: 12px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: .12em
+}
+
+/* 10. TARJETAS DE VENTAJAS, PAGOS Y MONITOREO */
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: #151515;
+  border-radius: 20px;
+  padding: 24px;
+  min-height: 190px
+}
+
+.card .icon {
+  font-size: 28px;
+  margin-bottom: 28px
+}
+
+.card h3 {
+  margin: 0 0 9px;
+  font-size: 20px
+}
+
+.card p {
+  margin: 0;
+  color: #aaa;
+  line-height: 1.65;
+  font-size: 14px
+}
+
+/* 11. FICHA TÉCNICA */
+.tech-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 18px
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px
+}
+
+.spec {
+  background: #141414;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 15px
+}
+
+.spec small {
+  display: block;
+  color: #767676;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 6px
+}
+
+.spec b {
+  font-size: 14px
+}
+
+.capacity-card {
+  border-radius: 22px;
+  background: linear-gradient(135deg,#2d1908,#12100e 60%);
+  border: 1px solid #43290f;
+  padding: 26px
+}
+
+.capacity-card h3 {
+  font-size: 26px;
+  margin: 0 0 20px
+}
+
+.barrow {
+  display: grid;
+  grid-template-columns: 90px 1fr 42px;
+  gap: 10px;
+  align-items: center;
+  margin: 16px 0;
+  font-size: 13px
+}
+
+.bar {
+  height: 12px;
+  border-radius: 99px;
+  background: #29231d;
+  overflow: hidden
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg,var(--orange),#ffc04d)
+}
+
+/* 12. CATÁLOGO Y BUSCADOR */
+.catalog-tools {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 18px
+}
+
+.search {
+  flex: 1;
+  max-width: 480px;
+  background: #111;
+  border: 1px solid #313131;
+  border-radius: 999px;
+  padding: 13px 16px;
+  color: #fff;
+  outline: none
+}
+
+.search:focus {
+  border-color: var(--orange)
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px
+}
+
+.product {
+  background: #151515;
+  border: 1px solid #292929;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px
+}
+
+.product span {
+  font-size: 14px
+}
+
+.product b {
+  color: var(--orange2);
+  white-space: nowrap
+}
+
+.product.hidden {
+  display: none
+}
+
+/* 13. PROPUESTAS DE NEGOCIACIÓN */
+.deal-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 14px
+}
+
+.deal {
+  border: 1px solid #303030;
+  background: #141414;
+  border-radius: 22px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden
+}
+
+.deal:before {
+  content: attr(data-n);
+  position: absolute;
+  right: -10px;
+  top: -28px;
+  font-size: 120px;
+  font-weight: 950;
+  color: #ffffff08;
+  line-height: 1
+}
+
+.deal h3 {
+  font-size: 24px;
+  margin: 0 0 10px
+}
+
+.deal p {
+  color: #aaa;
+  line-height: 1.55;
+  font-size: 14px
+}
+
+.deal ul {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none
+}
+
+.deal li {
+  border-top: 1px solid #292929;
+  padding: 12px 0;
+  font-size: 13px
+}
+
+.deal li strong {
+  color: var(--orange2)
+}
+
+/* 14. SIMULADOR COMERCIAL */
+.calc {
+  margin-top: 18px;
+  border: 1px solid #343434;
+  border-radius: 24px;
+  background: linear-gradient(145deg,#181818,#0f0f0f);
+  padding: 26px;
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 24px;
+  align-items: center
+}
+
+.calc h3 {
+  font-size: 26px;
+  margin: 0 0 8px
+}
+
+.calc p {
+  color: #999;
+  line-height: 1.55
+}
+
+.rangebox label {
+  font-size: 12px;
+  color: #aaa
+}
+
+.rangebox input[type=range] {
+  width: 100%;
+  accent-color: var(--orange);
+  margin: 16px 0
+}
+
+.sales {
+  font-size: 34px;
+  font-weight: 950;
+  color: var(--orange2)
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px
+}
+
+.result {
+  background: #0c0c0c;
+  border: 1px solid #2d2d2d;
+  border-radius: 16px;
+  padding: 16px
+}
+
+.result small {
+  display: block;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: 9px;
+  margin-bottom: 7px
+}
+
+.result b {
+  font-size: 20px
+}
+
+/* 15. CONTACTO Y PIE DE PÁGINA */
+.contact-band {
+  background: radial-gradient(circle at 80% 20%,#5a2c00,#17100a 38%,#090909 68%);
+  padding: 100px 0
+}
+
+.contact-box {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 20px;
+  align-items: center
+}
+
+.contact-box h2 {
+  font-size: clamp(40px,5vw,68px);
+  line-height: .95;
+  letter-spacing: -.05em;
+  margin: 10px 0 16px
+}
+
+.contact-box p {
+  color: #c8c8c2;
+  line-height: 1.7
+}
+
+.contact-actions {
+  display: grid;
+  gap: 10px
+}
+
+.contact-actions a {
+  text-decoration: none;
+  border-radius: 16px;
+  padding: 18px;
+  background: #171717;
+  border: 1px solid #343434;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center
+}
+
+.contact-actions a.primary {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #111;
+  font-weight: 900
+}
+
+.footer {
+  padding: 26px 0;
+  border-top: 1px solid #222;
+  color: #777;
+  font-size: 12px
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px
+}
+
+/* 16. APARICIÓN DE LAS SECCIONES */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: .65s ease
+}
+
+.reveal.on {
+  opacity: 1;
+  transform: none
+}
+
+/* 17. TABLET Y PANTALLAS DE HASTA 900 PX */
+@media(max-width:900px) {
+  .topbar {
+    height: 66px
+  }
+  .brand img {
+    width: 44px;
+    height: 44px
+  }
+  .brandtext span {
+    display: none
+  }
+  .story-copy {
+    top: 13vh;
+    left: 6vw;
+    width: 88vw
+  }
+  .story-copy h1 {
+    font-size: clamp(44px,10vw,70px)
+  }
+  .story-copy p {
+    width: 70vw;
+    max-width: 520px
+  }
+  .machine-img {
+    left: 64%;
+    top: 64%;
+    width: min(58vw,500px);
+    max-height: 63vh
+  }
+  .halo {
+    left: 64%;
+    top: 64%;
+    width: 65vw;
+    height: 65vw
+  }
+  .console-wrap {
+    top: 52%;
+    width: 94vw
+  }
+  .console {
+    grid-template-columns: 1fr;
+    padding: 15px
+  }
+  .screen {
+    min-height: 220px;
+    padding: 20px
+  }
+  .screen h2 {
+    margin: 35px 0 8px
+  }
+  .keypad {
+    grid-template-columns: repeat(3,1fr)
+  }
+  .key {
+    min-height: 70px
+  }
+  .key.contact-key {
+    grid-column: auto
+  }
+  .section-head,.tech-grid,.calc,.contact-box {
+    grid-template-columns: 1fr
+  }
+  .metrics {
+    grid-template-columns: repeat(2,1fr)
+  }
+  .grid3,.deal-grid,.catalog {
+    grid-template-columns: repeat(2,1fr)
+  }
+  .results {
+    grid-template-columns: 1fr 1fr 1fr
+  }
+}
+
+/* 18. CELULAR: estas reglas sustituyen las generales en pantallas pequeñas. */
+@media(max-width:560px) {
+  .topcta {
+    display: none
+  }
+  .scroll-story {
+    height: 360vh
+  }
+  .story-copy {
+    top: 11vh
+  }
+  .story-copy p {
+    width: 88vw;
+    font-size: 14px
+  }
+  .machine-img {
+    left: 50%;
+    top: 67%;
+    width: 78vw;
+    max-height: 58vh
+  }
+  .halo {
+    left: 50%;
+    top: 67%;
+    width: 88vw;
+    height: 88vw
+  }
+  .console-wrap {
+    top: 52%
+  }
+  .console {
+    border-radius: 18px;
+    padding: 10px
+  }
+  .screen {
+    min-height: 190px;
+    border-radius: 14px
+  }
+  .screen h2 {
+    font-size: 26px;
+    margin: 27px 0 6px
+  }
+  .screen p {
+    font-size: 12px
+  }
+  .keypad {
+    grid-template-columns: 1fr 1fr;
+    gap: 7px
+  }
+  .key {
+    min-height: 64px;
+    padding: 9px
+  }
+  .key b {
+    font-size: 13px
+  }
+  .key span {
+    font-size: 10px
+  }
+  .section {
+    padding: 72px 0
+  }
+  .section-head {
+    gap: 16px
+  }
+  .metrics,.grid3,.deal-grid,.catalog,.specs,.results {
+    grid-template-columns: 1fr
+  }
+  .catalog-tools {
+    align-items: stretch;
+    flex-direction: column
+  }
+  .footer .container {
+    flex-direction: column
+  }
+}
+
+/* 19. PREFERENCIA DE MOVIMIENTO REDUCIDO: reglas originales del archivo. */
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto
+  }
+  * {
+    animation: none!important;
+    transition: none!important
+  }
+}

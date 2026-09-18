@@ -1,0 +1,300 @@
+<!doctype html>
+<!-- SNACKS POINT — CONTENIDO
+  Abre LEEME.md para empezar.
+  Textos: este archivo. Diseño: styles.css. Interacciones: script.js.
+  Conserva los atributos id, class y data-go para mantener la navegación.
+-->
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <meta name="description" content="Snacks Point presenta Hibou 52 Mixta: vending inteligente, catálogo, ventajas y propuestas de negociación." />
+    <title>Snacks Point | Hibou 52 Mixta</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="topbar"><a class="brand" href="#experiencia"><img src="assets/logo.png" alt="Logo Snacks Point"><span class="brandtext"><b>SNACKS POINT</b><span>Vending inteligente</span></span></a><a class="topcta" href="#contacto">Solicitar propuesta</a></nav>
+    <!-- INICIO: título, imágenes, transición y menú de la máquina. -->
+    <section id="experiencia" class="scroll-story">
+      <div class="sticky">
+        <div class="halo"></div>
+        <div class="story-copy" id="storyCopy">
+          <div class="eyebrow">Hibou 52 Mixta · experiencia interactiva</div>
+          <h1>Conoce la máquina <em>desde adentro.</em></h1>
+          <p>Desliza para pasar de una vista isométrica a la consola frontal. Al llegar a la pantalla, selecciona una opción como si estuvieras frente a la Hibou 52.</p>
+          <div class="scroll-hint"><i></i> Desliza para acercarte</div>
+        </div>
+        <div class="machine-stage">
+          <img class="machine-img machine-iso" id="iso" src="assets/maquina-isometrica.png" alt="Vista isométrica de la máquina Hibou 52 Mixta">
+          <img class="machine-img machine-front" id="front" src="assets/maquina-frontal.png" alt="Vista frontal de la máquina Hibou 52 Mixta">
+        </div>
+        <div class="console-wrap" id="consoleWrap" aria-hidden="true">
+          <div class="console">
+            <div class="screen">
+              <div class="screen-top"><span>SNACKS POINT · HIBOU 52</span><span>● ONLINE</span></div>
+              <h2>Seleccione una opción</h2>
+              <p>Explora la máquina, su catálogo y la propuesta comercial desde este panel.</p>
+              <div class="screen-footer">52 SELECCIONES · 344 PRODUCTOS · OPERACIÓN 24/7</div>
+            </div>
+            <div class="keypad">
+              <button class="key" data-go="tecnica"><b>01</b><span>Información técnica</span></button>
+              <button class="key" data-go="ventajas"><b>02</b><span>Ventajas y operación</span></button>
+              <button class="key" data-go="pagos"><b>03</b><span>Sistemas de pago</span></button>
+              <button class="key" data-go="catalogo"><b>04</b><span>Catálogo y precios</span></button>
+              <button class="key" data-go="negociacion"><b>05</b><span>Propuesta de negociación</span></button>
+              <button class="key" data-go="monitoreo"><b>06</b><span>Monitoreo remoto</span></button>
+              <button class="key contact-key" data-go="contacto"><b>07</b><span>Contacto / solicitar propuesta</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="quick-strip" id="quick"><a href="#tecnica">Técnica</a><a href="#catalogo">Catálogo</a><a href="#negociacion">Negociación</a><a href="#contacto">Contacto</a></div>
+      </div>
+    </section>
+    <!-- VENTAJAS: textos e indicadores comerciales. -->
+    <section class="section" id="ventajas">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">La propuesta</div>
+            <h2>Más valor para tu espacio. Menos complicaciones en la operación.</h2>
+          </div>
+          <p>La Hibou 52 Mixta ofrece alimentos y bebidas disponibles 24/7 para distintos espacios y tipos de operación. La propuesta plantea una instalación sin inversión inicial, sin contratación de personal adicional y con la operación, mantenimiento y reabastecimiento a cargo del operador.</p>
+        </div>
+        <div class="metrics reveal">
+          <div class="metric"><strong>344</strong><span>productos</span></div>
+          <div class="metric"><strong>52</strong><span>selecciones</span></div>
+          <div class="metric"><strong>24/7</strong><span>disponibilidad</span></div>
+          <div class="metric"><strong>0</strong><span>personal adicional</span></div>
+        </div>
+        <div style="height:16px"></div>
+        <div class="grid3 reveal">
+          <article class="card">
+            <div class="icon">🛒</div>
+            <h3>Multiventa tipo carrito</h3>
+            <p>Permite elegir varios productos en una sola transacción para una experiencia de compra más fluida.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🛡️</div>
+            <h3>Sensores anti-atoramiento</h3>
+            <p>Verifican la entrega y alertan al usuario cuando debe retirar productos progresivamente.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🇲🇽</div>
+            <h3>Interfaz en español</h3>
+            <p>Menú intuitivo orientado al mercado mexicano para operar la máquina sin asistencia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- FICHA TÉCNICA: características y capacidad. -->
+    <section class="section alt" id="tecnica">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Ficha técnica</div>
+            <h2>Hibou 52 Mixta</h2>
+          </div>
+          <p>Formato combo refrigerado con 190 snacks y 154 bebidas en un solo gabinete, iluminación LED y vidrio templado.</p>
+        </div>
+        <div class="tech-grid reveal">
+          <div class="specs">
+            <div class="spec"><small>Dimensiones</small><b>1950 × 1035 × 820 mm</b></div>
+            <div class="spec"><small>Peso</small><b>330 kg</b></div>
+            <div class="spec"><small>Refrigeración</small><b>Compresor · Gas R134a</b></div>
+            <div class="spec"><small>Temperatura</small><b>2–25 °C ajustable</b></div>
+            <div class="spec"><small>Consumo</small><b>~110 W</b></div>
+            <div class="spec"><small>Alimentación</small><b>110 V / 60 Hz</b></div>
+            <div class="spec"><small>Protocolo</small><b>MDB Nivel 3</b></div>
+            <div class="spec"><small>Dispensado</small><b>Espiral modular</b></div>
+            <div class="spec"><small>Iluminación</small><b>LED interior</b></div>
+            <div class="spec"><small>Ventana</small><b>Vidrio templado</b></div>
+          </div>
+          <aside class="capacity-card">
+            <div class="kicker">Capacidad</div>
+            <h3>Un solo equipo. Dos categorías.</h3>
+            <div class="barrow">
+              <span>Snacks</span>
+              <div class="bar">
+                <div class="fill" style="width:55.2%"></div>
+              </div>
+              <b>190</b>
+            </div>
+            <div class="barrow">
+              <span>Bebidas</span>
+              <div class="bar">
+                <div class="fill" style="width:44.8%"></div>
+              </div>
+              <b>154</b>
+            </div>
+            <p style="color:#b9a68c;font-size:13px;line-height:1.6">Solo requiere una toma eléctrica estándar de 110 V; la propuesta indica que no necesita obra civil ni instalación especial.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- SISTEMAS DE PAGO -->
+    <section class="section" id="pagos">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Cobro flexible</div>
+            <h2>Sistemas de pago compatibles</h2>
+          </div>
+          <p>El protocolo MDB Nivel 3 permite integrar distintas alternativas de cobro. Los sistemas de pago se cotizan de manera adicional al equipo.</p>
+        </div>
+        <div class="grid3 reveal">
+          <article class="card">
+            <div class="icon">💵</div>
+            <h3>Efectivo</h3>
+            <p>Compatible con monedero vending, billetero y reciclador de efectivo ICT BRV.</p>
+          </article>
+          <article class="card">
+            <div class="icon">💳</div>
+            <h3>Cashless</h3>
+            <p>Integración con lectores Nayax y Cantaloupe para cobros sin efectivo.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🔌</div>
+            <h3>MDB Nivel 3</h3>
+            <p>Interfaz estándar para conectar periféricos de pago compatibles con el controlador vending.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- CATÁLOGO: cambia nombre, data-name y precio en cada .product. -->
+    <section class="section alt" id="catalogo">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Catálogo de productos</div>
+            <h2>Opciones listas para vender</h2>
+          </div>
+          <p>Precios públicos incluidos en la propuesta comercial. Usa el buscador para filtrar el catálogo.</p>
+        </div>
+        <div class="catalog-tools reveal">
+          <input class="search" id="productSearch" type="search" placeholder="Buscar Coca-Cola, Sabritas, Monster…" aria-label="Buscar producto">
+          <span id="productCount" style="color:#777;font-size:12px">18 productos</span>
+        </div>
+        <div class="catalog reveal" id="catalogGrid">
+          <div class="product" data-name="coca cola 600 ml"><span>Coca Cola 600 ml</span><b>$30</b></div>
+          <div class="product" data-name="topochico 600 ml"><span>Topochico 600 ml</span><b>$30</b></div>
+          <div class="product" data-name="gatorade surtido 500 ml"><span>Gatorade surtido 500 ml</span><b>$30</b></div>
+          <div class="product" data-name="arizona"><span>Arizona</span><b>$25</b></div>
+          <div class="product" data-name="agua sta. maría 500 ml"><span>Agua Sta. María 500 ml</span><b>$15</b></div>
+          <div class="product" data-name="refresco pepsi surtido lata"><span>Refresco Pepsi surtido lata</span><b>$20</b></div>
+          <div class="product" data-name="jugos del valle 250 ml"><span>Jugos del Valle 250 ml</span><b>$20</b></div>
+          <div class="product" data-name="sabritas surtidas"><span>Sabritas surtidas</span><b>$20</b></div>
+          <div class="product" data-name="swinkles"><span>Swinkles</span><b>$20</b></div>
+          <div class="product" data-name="kit kat"><span>Kit Kat</span><b>$25</b></div>
+          <div class="product" data-name="snickers"><span>Snickers</span><b>$25</b></div>
+          <div class="product" data-name="kinder delice"><span>Kinder Delice</span><b>$20</b></div>
+          <div class="product" data-name="pingüinos"><span>Pingüinos</span><b>$25</b></div>
+          <div class="product" data-name="gansito mini"><span>Gansito mini</span><b>$15</b></div>
+          <div class="product" data-name="swinkles salsagueti"><span>Swinkles Salsagueti</span><b>$25</b></div>
+          <div class="product" data-name="choco roles"><span>Choco Roles</span><b>$25</b></div>
+          <div class="product" data-name="emperador"><span>Emperador</span><b>$15</b></div>
+          <div class="product" data-name="monster"><span>Monster</span><b>$45</b></div>
+        </div>
+      </div>
+    </section>
+    <!-- MONITOREO REMOTO -->
+    <section class="section" id="monitoreo">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Operación inteligente</div>
+            <h2>Monitoreo remoto en tiempo real</h2>
+          </div>
+          <p>La telemetría permite anticiparse al desabasto y reducir interrupciones operativas. En la ficha técnica, el monitoreo remoto se contempla mediante SIM 4G o 5G.</p>
+        </div>
+        <div class="grid3 reveal">
+          <article class="card">
+            <div class="icon">📦</div>
+            <h3>Reabastecimiento proactivo</h3>
+            <p>La propuesta busca evitar que la máquina luzca vacía frente a los visitantes mediante reposición anticipada.</p>
+          </article>
+          <article class="card">
+            <div class="icon">📡</div>
+            <h3>Ventas e inventario</h3>
+            <p>Telemetría para consultar ventas, inventario y estado general del equipo.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🧰</div>
+            <h3>Menos interrupciones</h3>
+            <p>Menos mantenimiento correctivo significa menos afectación a la operación y a la imagen del espacio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- NEGOCIACIÓN: si cambias porcentajes, actualiza también calc() en script.js. -->
+    <section class="section alt" id="negociacion">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Opciones abiertas a negociación</div>
+            <h2>Tres propuestas de negociación</h2>
+          </div>
+          <p>La propuesta permite elegir entre renta fija, comisión por ventas o un modelo mixto. Los montos y porcentajes cambian entre el primer año y los años posteriores.</p>
+        </div>
+        <div class="deal-grid reveal">
+          <article class="deal" data-n="1">
+            <h3>Renta fija</h3>
+            <p>Ingreso mensual acordado por el espacio, independiente del volumen de ventas.</p>
+            <ul>
+              <li>Primer año: <strong>$5,000 / mes</strong></li>
+              <li>Segundo año en adelante: <strong>$6,000 / mes</strong></li>
+            </ul>
+          </article>
+          <article class="deal" data-n="2">
+            <h3>Comisión por ventas</h3>
+            <p>Participación directa sobre el desempeño de la operación.</p>
+            <ul>
+              <li>Primer año: <strong>20% de ventas</strong></li>
+              <li>Segundo año en adelante: <strong>25% de ventas</strong></li>
+            </ul>
+          </article>
+          <article class="deal" data-n="3">
+            <h3>Modelo mixto</h3>
+            <p>Combina una renta base con una comisión variable para equilibrar certeza y crecimiento.</p>
+            <ul>
+              <li>Primer año: <strong>$3,000 + 10%</strong></li>
+              <li>Segundo año en adelante: <strong>$2,500 + 15%</strong></li>
+            </ul>
+          </article>
+        </div>
+        <div class="calc reveal">
+          <div>
+            <div class="kicker">Simulador orientativo</div>
+            <h3>¿Cuánto podrías recibir?</h3>
+            <p>Desliza el estimado de ventas mensuales. El cálculo usa exclusivamente los porcentajes y rentas de la propuesta.</p>
+            <div class="rangebox">
+              <label for="salesRange">Ventas mensuales estimadas</label>
+              <input id="salesRange" type="range" min="10000" max="100000" step="1000" value="40000">
+              <div class="sales" id="salesLabel">$40,000</div>
+            </div>
+          </div>
+          <div class="results">
+            <div class="result"><small>Renta fija · año 1</small><b>$5,000</b></div>
+            <div class="result"><small>Comisión · año 1</small><b id="commissionResult">$8,000</b></div>
+            <div class="result"><small>Mixto · año 1</small><b id="mixedResult">$7,000</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CONTACTO: cambia tanto el número visible como el enlace href. -->
+    <section class="contact-band" id="contacto">
+      <div class="container contact-box">
+        <div class="reveal">
+          <div class="kicker">Información de contacto</div>
+          <h2>Convierte el tráfico de tu espacio en una oportunidad.</h2>
+          <p>La propuesta contempla que el operador asuma la operación, mantenimiento y reabastecimiento. Contacta a Snacks Point para revisar ubicación, modelo de negociación y configuración ideal.</p>
+        </div>
+        <div class="contact-actions reveal"><a class="primary" href="https://wa.me/525579772170" target="_blank" rel="noopener"><span>WhatsApp principal<br><small>55 7977 2170</small></span><b>↗</b></a><a href="tel:+525579772170"><span>Llamar al número principal<br><small>55 7977 2170</small></span><b>→</b></a><a href="https://wa.me/525610235400" target="_blank" rel="noopener"><span>WhatsApp secundario<br><small>56 1023 5400</small></span><b>↗</b></a></div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container"><span>© Snacks Point · Hibou 52 Mixta</span><a href="#experiencia">Volver a la máquina ↑</a></div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
